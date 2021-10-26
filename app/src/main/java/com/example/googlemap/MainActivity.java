@@ -335,9 +335,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng[] a = new LatLng[4];
 
         List<LatLng> latLngs = new ArrayList<>();
-        for(int i=0;i<10;i++){
+        for(int i=0;i<getIntent().getIntExtra("size",10);i++){
             latLngs.add(new LatLng(getIntent().getFloatExtra(i+"X",0),getIntent().getFloatExtra(i+"Y",0)));
             ttle.add(getIntent().getStringExtra(i+"cp_name"));
+            kc.add(getIntent().getStringExtra(i+"kinds"));
 
         }
         a[0] = new LatLng(getIntent().getFloatExtra(0+"X",0),getIntent().getFloatExtra(0+"Y",0));
