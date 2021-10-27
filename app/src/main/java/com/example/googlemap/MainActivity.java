@@ -329,9 +329,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
 
-
-        System.out.println("안녕하세요");
-
         LatLng[] a = new LatLng[4];
 
         List<LatLng> latLngs = new ArrayList<>();
@@ -339,15 +336,19 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             latLngs.add(new LatLng(getIntent().getFloatExtra(i+"X",0),getIntent().getFloatExtra(i+"Y",0)));
             ttle.add(getIntent().getStringExtra(i+"cp_name"));
             kc.add(getIntent().getStringExtra(i+"kinds"));
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(latLngs.get(i)).title(ttle.get(i)).snippet(getIntent().getStringExtra(i+"info"))
+                    .alpha(0.5f).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
 
-        }
+            mMap.addMarker(markerOptions);
+        }/*
         a[0] = new LatLng(getIntent().getFloatExtra(0+"X",0),getIntent().getFloatExtra(0+"Y",0));
         a[1] = new LatLng(37.45635372073381, 126.70662043025608);
         a[2] = new LatLng(35.160219730810915, 129.0460488411893);
-
+*/
         CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(36, 123));
         mMap.moveCamera(center);
-
+/*
         title[0] = getIntent().getStringExtra(0+"cp_name");//"없는게없는재활용가게";
         title[1] = "Home";
         title[2] = "Tree";
@@ -371,7 +372,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .alpha(0.5f).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
         marker[j] = mMap.addMarker(markerOptions);
 
-
+*/
 
         mMap.setOnMapClickListener(this);
         mMap.setOnMarkerClickListener(this);

@@ -43,12 +43,14 @@ public class InitLayout extends AppCompatActivity {
                         cpdto.setPositionX(Float.parseFloat(obj.get("positionX").toString()));
                         cpdto.setPositionY(Float.parseFloat(obj.get("positionY").toString()));
                         cpdto.setName(obj.get("name").toString());
+                        cpdto.setInfo(obj.get("info").toString());
                         cpdto.setCategory(obj.get("category").toString());
                         intent.putExtra(i+"X",cpdto.getPositionX());
                         intent.putExtra(i+"Y",cpdto.getPositionY());
                         intent.putExtra(i+"cp_name",cpdto.getName());
                         intent.putExtra("size",ary.size());
                         intent.putExtra(i+"kinds",cpdto.getCategory());
+                        intent.putExtra(i+"info",cpdto.getInfo());
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();
